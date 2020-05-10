@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="row pt-4">
+    <div class="col-md-6 mx-auto">
+        <div class="card rounded-0">
+            <div class="card-header rounded-0 text-light bg-danger">
+                <h3 class="lead mt-2" style="font-weight: 200;">Log In</h3>                
+            </div>
+
+            <div class="content-section mb-3" style="font-weight: 200;">
+                <form method="POST" action="">
+                    {{ form.hidden_tag() }}
+
+                        <div class="form-group mt-2 ml-3 mr-3">
+                            {{ form.email.label(class="form-control-label") }}
+                            {% if form.email.errors %}
+                                {{ form.email(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.email(class="form-control rounded-0") }}
+                            {% endif %}
+                            
+                        </div>
+                        <div class="form-group mt-1 ml-3 mr-3">
+                            {{ form.password.label(class="form-control-label") }}
+                             {% if form.password.errors %}
+                                {{ form.password(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.password.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.password(class="form-control rounded-0") }}
+                            {% endif %}
+
+                            
+                        </div>
+
+                        <div class="form-check ml-3 mt-1">
+                            {{ form.remember(class="form-check-input")}}
+                            {{ form.remember.label(class="form-check-label")}}
+                        </div>
+                    
+                    <div class="form-group" style="font-weight: 200;">
+                        {{ form.submit(class="btn btn-danger float-right rounded-0 mr-3 mb-3", style="font-weight: 200;") }}
+                    </div>
+                    <small class="text-muted ml-3" style="font-weight: 200;">
+                        <a href="#">Forgot password?</a>
+                    </small>
+                    
+                </form>
+                <small class="text-muted ml-3" style="font-weight: 200;">
+                        Don't have an account?<a class="ml-2" href="{{ url_for('users.register_page') }}">Register</a>
+                </small>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+
+
+{% endblock content %}

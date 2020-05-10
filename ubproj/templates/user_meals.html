@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="row ml-5">
+
+    <h4 class="lead mb-3 mt-5 ml-5">All {{ meals.total }} meals by {{ user.username }}:</h4>
+    
+</div>
+
+
+<div class="row mt-3 ml-5 mr-5">
+    
+    {% for meal in meals.items %} 
+    <div class="col-md-4 mb-4">
+        <div class="card text-center rounded-0">
+            
+            <div class="card-body" style="font-weight: 200;">
+                <h5 style="font-weight: 200;" class="card-title"> <a href="{{ url_for('meals.meal', meal_id=meal.id) }}">{{ meal.title }}</a></h5>
+                <p class="card-text">Content: {{ meal.content }}</p>
+                <p class="card-text">Calories: {{ meal.calories }}</p>
+                <div class="card-footer" style="font-weight: 200;">
+                    <p class="text-muted">Added on: {{ meal.date_added.strftime("%m/%d/%Y") }} 
+                    at {{ meal.date_added.strftime("%H:%M:%S") }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endfor %}
+
+  
+</div>
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        
+      </div>
+      <div class="col-md-auto">
+        {% for page_num in meals.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %} 
+            {% if page_num %}
+                {% if meals.page == page_num %}
+                    <a class="btn btn-info rounded-0 m-2" href="{{ url_for('users.user_meals', username=current_user.username, page=page_num) }}">{{ page_num }}</a>
+                {% else %}
+                <a class="btn btn-outline-info rounded-0 m-2" href="{{ url_for('users.user_meals', username=current_user.username, page=page_num) }}">{{ page_num }}</a>
+
+                {% endif %}
+            {% else %}
+                ..
+            {% endif %}
+        {% endfor %}
+      </div>
+      <div class="col">
+        
+      </div>
+    </div>
+  </div>
+
+
+{% endblock content %}

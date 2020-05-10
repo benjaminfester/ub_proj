@@ -1,0 +1,303 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="container my-4">
+    <div class="jumbotron mt-3 mr-5 ml-5 rounded-0" style="font-weight: 200;">
+
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-4">
+                <img class="rounded-circle account-img" height="200" width="200" src="{{ user_image_file }}">
+                
+            </div>
+            <div class="col-4">
+                <h1 style="font-weight: 200;">Welcome to your account page, {{ current_user.username }}!</h1>
+                <p class="lead"> On this page you can update your personal information. Scroll down to update!</p>
+            </div>
+ 
+          </div>
+        </div>
+
+
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    
+                </div>
+                <div class="col-sm-8">
+                    <hr>
+                    <h3 class="lead">Account Information</h3>                
+                    <form method="POST" action="" enctype="multipart/form-data">
+                        {{ form.hidden_tag() }}
+                        <div class="form-group mt-1">
+                            {{ form.username.label(class="form-control-label") }}
+                            
+                            {% if form.username.errors %}
+                                {{ form.username(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.username.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                        {% else %}
+                            {{ form.username(class="form-control rounded-0") }}
+                        {% endif %}
+                
+                        </div>
+                        <div class="form-group mt-1">
+                            {{ form.email.label(class="form-control-label") }}
+                            {% if form.email.errors %}
+                                {{ form.email(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.email(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.age.label(class="form-control-label") }}
+                            {% if form.age.errors %}
+                                {{ form.age(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.age.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.age(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group mt-1">
+                            {{ form.gender.label(class="form-control-label") }}
+                            {% if form.gender.errors %}
+                                {{ form.gender(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.gender.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.gender(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.height.label(class="form-control-label") }}
+                            {% if form.height.errors %}
+                                {{ form.height(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.height.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.height(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.weight.label(class="form-control-label") }}
+                            {% if form.weight.errors %}
+                                {{ form.weight(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.weight.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.weight(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.education.label(class="form-control-label") }}
+                            {% if form.education.errors %}
+                                {{ form.education(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.education.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.education(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.address.label(class="form-control-label") }}
+                            {% if form.address.errors %}
+                                {{ form.address(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.address.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.address(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.environment.label(class="form-control-label") }}
+                            {% if form.environment.errors %}
+                                {{ form.environment(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.environment.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.environment(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.nationality.label(class="form-control-label") }}
+                            {% if form.nationality.errors %}
+                                {{ form.nationality(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.nationality.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.nationality(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.pets.label(class="form-control-label") }}
+                            {% if form.pets.errors %}
+                                {{ form.pets(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.pets.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.pets(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.place_of_birth.label(class="form-control-label") }}
+                            {% if form.place_of_birth.errors %}
+                                {{ form.place_of_birth(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.place_of_birth.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.place_of_birth(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.normal_or_csection.label(class="form-control-label") }}
+                            {% if form.normal_or_csection.errors %}
+                                {{ form.normal_or_csection(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.normal_or_csection.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.normal_or_csection(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.infant_food.label(class="form-control-label") }}
+                            {% if form.infant_food.errors %}
+                                {{ form.infant_food(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.infant_food.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.infant_food(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.parents_smoking.label(class="form-control-label") }}
+                            {% if form.parents_smoking.errors %}
+                                {{ form.parents_smoking(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.parents_smoking.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.parents_smoking(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.parents_overweight.label(class="form-control-label") }}
+                            {% if form.parents_overweight.errors %}
+                                {{ form.parents_overweight(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.parents_overweight.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.parents_overweight(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group mt-1">
+                            {{ form.parents_nationality.label(class="form-control-label") }}
+                            {% if form.parents_nationality.errors %}
+                                {{ form.parents_nationality(class="form-control rounded-0 is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.parents_nationality.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.parents_nationality(class="form-control rounded-0") }}
+                            {% endif %}
+                        </div>
+
+            
+                        <div class="form-group mt-1">
+                            {{ form.picture.label() }}
+                            {{ form.picture(class="form-control-file") }}
+                            {% if form.picture.errors %}
+                                {% for error in form.picture.errors %}
+                                    <span class="text-danger">{{ error }}</span></br>
+                                {% endfor  %}
+                            {% endif  %}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.submit(class="btn btn-danger float-right rounded-0 mr-3 mt-2", style="font-weight: 200;") }}
+                        </div>
+                    </form>
+             
+                </div>
+                <div class="col-sm-2">
+                    
+                </div>
+            </div>
+         
+        </div>
+
+    	
+              
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
